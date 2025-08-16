@@ -1,0 +1,663 @@
+{
+  "PC_Compounds": [
+    {
+      "id": {
+        "id": {
+          "cid": 22280334
+        }
+      },
+      "atoms": {
+        "aid": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27
+        ],
+        "element": [
+          7,
+          7,
+          7,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "bonds": {
+        "aid1": [
+          1,
+          1,
+          2,
+          2,
+          4,
+          4,
+          4,
+          5,
+          5,
+          6,
+          6,
+          7,
+          7,
+          8,
+          8,
+          10,
+          10,
+          11,
+          11,
+          12,
+          12,
+          13,
+          13,
+          14,
+          15,
+          15,
+          16,
+          17,
+          17,
+          18
+        ],
+        "aid2": [
+          3,
+          9,
+          3,
+          14,
+          5,
+          6,
+          10,
+          7,
+          11,
+          8,
+          12,
+          9,
+          13,
+          9,
+          14,
+          15,
+          19,
+          17,
+          20,
+          16,
+          21,
+          18,
+          22,
+          23,
+          16,
+          24,
+          25,
+          18,
+          26,
+          27
+        ],
+        "order": [
+          1,
+          2,
+          2,
+          1,
+          1,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          1
+        ]
+      },
+      "coords": [
+        {
+          "type": [
+            1,
+            5,
+            255
+          ],
+          "aid": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27
+          ],
+          "conformers": [
+            {
+              "x": [
+                2.5278,
+                2.5208,
+                2,
+                5.5693,
+                5.0693,
+                5.0693,
+                4.0693,
+                4.0693,
+                3.5693,
+                6.6108,
+                5.6039,
+                5.5761,
+                3.5346,
+                3.5624,
+                7.1385,
+                6.6177,
+                5.0901,
+                4.0484,
+                6.9145,
+                6.2239,
+                5.2599,
+                2.9146,
+                3.8786,
+                7.7585,
+                6.9256,
+                5.4021,
+                3.7364
+              ],
+              "y": [
+                -0.4249,
+                -2.225,
+                -1.323,
+                -0.441,
+                0.425,
+                -1.307,
+                0.425,
+                -1.307,
+                -0.441,
+                -0.4249,
+                1.319,
+                -2.217,
+                1.319,
+                -2.217,
+                -1.323,
+                -2.225,
+                2.225,
+                2.225,
+                0.1156,
+                1.3118,
+                -2.7503,
+                1.3118,
+                -2.7503,
+                -1.3206,
+                -2.7632,
+                2.7608,
+                2.7608
+              ],
+              "style": {
+                "annotation": [
+                  8,
+                  8,
+                  8,
+                  8,
+                  8,
+                  8,
+                  8,
+                  8,
+                  8,
+                  8,
+                  8,
+                  8,
+                  8,
+                  8,
+                  8,
+                  8,
+                  8,
+                  8,
+                  8,
+                  8,
+                  8
+                ],
+                "aid1": [
+                  1,
+                  1,
+                  2,
+                  2,
+                  4,
+                  4,
+                  4,
+                  5,
+                  5,
+                  6,
+                  6,
+                  7,
+                  7,
+                  8,
+                  8,
+                  10,
+                  11,
+                  12,
+                  13,
+                  15,
+                  17
+                ],
+                "aid2": [
+                  3,
+                  9,
+                  3,
+                  14,
+                  5,
+                  6,
+                  10,
+                  7,
+                  11,
+                  8,
+                  12,
+                  9,
+                  13,
+                  9,
+                  14,
+                  15,
+                  17,
+                  16,
+                  18,
+                  16,
+                  18
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "charge": 0,
+      "props": [
+        {
+          "urn": {
+            "label": "Compound",
+            "name": "Canonicalized",
+            "datatype": 5,
+            "release": "2019.01.04"
+          },
+          "value": {
+            "ival": 1
+          }
+        },
+        {
+          "urn": {
+            "label": "Compound Complexity",
+            "datatype": 7,
+            "implementation": "E_COMPLEXITY",
+            "version": "3.4.6.11",
+            "software": "Cactvs",
+            "source": "xemistry.com",
+            "release": "2019.06.18"
+          },
+          "value": {
+            "fval": 306
+          }
+        },
+        {
+          "urn": {
+            "label": "Count",
+            "name": "Hydrogen Bond Acceptor",
+            "datatype": 5,
+            "implementation": "E_NHACCEPTORS",
+            "version": "3.4.6.11",
+            "software": "Cactvs",
+            "source": "xemistry.com",
+            "release": "2019.06.18"
+          },
+          "value": {
+            "ival": 3
+          }
+        },
+        {
+          "urn": {
+            "label": "Count",
+            "name": "Hydrogen Bond Donor",
+            "datatype": 5,
+            "implementation": "E_NHDONORS",
+            "version": "3.4.6.11",
+            "software": "Cactvs",
+            "source": "xemistry.com",
+            "release": "2019.06.18"
+          },
+          "value": {
+            "ival": 0
+          }
+        },
+        {
+          "urn": {
+            "label": "Count",
+            "name": "Rotatable Bond",
+            "datatype": 5,
+            "implementation": "E_NROTBONDS",
+            "version": "3.4.6.11",
+            "software": "Cactvs",
+            "source": "xemistry.com",
+            "release": "2019.06.18"
+          },
+          "value": {
+            "ival": 0
+          }
+        },
+        {
+          "urn": {
+            "label": "Fingerprint",
+            "name": "SubStructure Keys",
+            "datatype": 16,
+            "parameters": "extended 2",
+            "implementation": "E_SCREEN",
+            "version": "3.4.6.11",
+            "software": "Cactvs",
+            "source": "xemistry.com",
+            "release": "2019.06.18"
+          },
+          "value": {
+            "binary": "00000371C07300000000000000000000000000000000000000003C60C1000000000000F1F400001C00080000000C08C11E043CC0F0000000A203346740008204002080001898202044980820A280D1D180240060800008C8071080C00EC8000240001200009000048000240000000000000000"
+          }
+        },
+        {
+          "urn": {
+            "label": "IUPAC Name",
+            "name": "Allowed",
+            "datatype": 1,
+            "version": "2.6.6",
+            "software": "LexiChem",
+            "source": "openeye.com",
+            "release": "2019.06.18"
+          },
+          "value": {
+            "sval": "phenanthro[9,10-d]triazine"
+          }
+        },
+        {
+          "urn": {
+            "label": "IUPAC Name",
+            "name": "CAS-like Style",
+            "datatype": 1,
+            "version": "2.6.6",
+            "software": "LexiChem",
+            "source": "openeye.com",
+            "release": "2019.06.18"
+          },
+          "value": {
+            "sval": "phenanthro[9,10-d]triazine"
+          }
+        },
+        {
+          "urn": {
+            "label": "IUPAC Name",
+            "name": "Markup",
+            "datatype": 1,
+            "version": "2.6.6",
+            "software": "LexiChem",
+            "source": "openeye.com",
+            "release": "2019.06.18"
+          },
+          "value": {
+            "sval": "phenanthro[9,10-d]triazine"
+          }
+        },
+        {
+          "urn": {
+            "label": "IUPAC Name",
+            "name": "Preferred",
+            "datatype": 1,
+            "version": "2.6.6",
+            "software": "LexiChem",
+            "source": "openeye.com",
+            "release": "2019.06.18"
+          },
+          "value": {
+            "sval": "phenanthro[9,10-d]triazine"
+          }
+        },
+        {
+          "urn": {
+            "label": "IUPAC Name",
+            "name": "Systematic",
+            "datatype": 1,
+            "version": "2.6.6",
+            "software": "LexiChem",
+            "source": "openeye.com",
+            "release": "2019.06.18"
+          },
+          "value": {
+            "sval": "phenanthro[9,10-d][1,2,3]triazine"
+          }
+        },
+        {
+          "urn": {
+            "label": "IUPAC Name",
+            "name": "Traditional",
+            "datatype": 1,
+            "version": "2.6.6",
+            "software": "LexiChem",
+            "source": "openeye.com",
+            "release": "2019.06.18"
+          },
+          "value": {
+            "sval": "phenanthro[9,10-d]triazine"
+          }
+        },
+        {
+          "urn": {
+            "label": "InChI",
+            "name": "Standard",
+            "datatype": 1,
+            "version": "1.0.5",
+            "software": "InChI",
+            "source": "iupac.org",
+            "release": "2019.06.18"
+          },
+          "value": {
+            "sval": "InChI=1S/C15H9N3/c1-2-7-12-10(5-1)11-6-3-4-8-13(11)15-14(12)9-16-18-17-15/h1-9H"
+          }
+        },
+        {
+          "urn": {
+            "label": "InChIKey",
+            "name": "Standard",
+            "datatype": 1,
+            "version": "1.0.5",
+            "software": "InChI",
+            "source": "iupac.org",
+            "release": "2019.06.18"
+          },
+          "value": {
+            "sval": "RHUQQFMKVHRJRO-UHFFFAOYSA-N"
+          }
+        },
+        {
+          "urn": {
+            "label": "Log P",
+            "name": "XLogP3-AA",
+            "datatype": 7,
+            "version": "3.0",
+            "source": "sioc-ccbg.ac.cn",
+            "release": "2019.06.18"
+          },
+          "value": {
+            "fval": 2.3
+          }
+        },
+        {
+          "urn": {
+            "label": "Mass",
+            "name": "Exact",
+            "datatype": 1,
+            "version": "2.1",
+            "software": "PubChem",
+            "source": "ncbi.nlm.nih.gov",
+            "release": "2021.05.07"
+          },
+          "value": {
+            "sval": "231.079647300"
+          }
+        },
+        {
+          "urn": {
+            "label": "Molecular Formula",
+            "datatype": 1,
+            "version": "2.1",
+            "software": "PubChem",
+            "source": "ncbi.nlm.nih.gov",
+            "release": "2019.06.18"
+          },
+          "value": {
+            "sval": "C15H9N3"
+          }
+        },
+        {
+          "urn": {
+            "label": "Molecular Weight",
+            "datatype": 1,
+            "version": "2.1",
+            "software": "PubChem",
+            "source": "ncbi.nlm.nih.gov",
+            "release": "2021.05.07"
+          },
+          "value": {
+            "sval": "231.25"
+          }
+        },
+        {
+          "urn": {
+            "label": "SMILES",
+            "name": "Absolute",
+            "datatype": 1,
+            "version": "2.3.0",
+            "software": "OEChem",
+            "source": "OpenEye Scientific Software",
+            "release": "2024.12.12"
+          },
+          "value": {
+            "sval": "C1=CC=C2C(=C1)C3=CC=CC=C3C4=NN=NC=C24"
+          }
+        },
+        {
+          "urn": {
+            "label": "SMILES",
+            "name": "Connectivity",
+            "datatype": 1,
+            "version": "2.1.5",
+            "software": "OEChem",
+            "source": "openeye.com",
+            "release": "2025.06.30"
+          },
+          "value": {
+            "sval": "C1=CC=C2C(=C1)C3=CC=CC=C3C4=NN=NC=C24"
+          }
+        },
+        {
+          "urn": {
+            "label": "Topological",
+            "name": "Polar Surface Area",
+            "datatype": 7,
+            "implementation": "E_TPSA",
+            "version": "3.4.6.11",
+            "software": "Cactvs",
+            "source": "xemistry.com",
+            "release": "2019.06.18"
+          },
+          "value": {
+            "fval": 38.7
+          }
+        },
+        {
+          "urn": {
+            "label": "Weight",
+            "name": "MonoIsotopic",
+            "datatype": 1,
+            "version": "2.1",
+            "software": "PubChem",
+            "source": "ncbi.nlm.nih.gov",
+            "release": "2021.05.07"
+          },
+          "value": {
+            "sval": "231.079647300"
+          }
+        }
+      ],
+      "count": {
+        "heavy_atom": 18,
+        "atom_chiral": 0,
+        "atom_chiral_def": 0,
+        "atom_chiral_undef": 0,
+        "bond_chiral": 0,
+        "bond_chiral_def": 0,
+        "bond_chiral_undef": 0,
+        "isotope_atom": 0,
+        "covalent_unit": 1,
+        "tautomers": -1
+      }
+    }
+  ]
+}
