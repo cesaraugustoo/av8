@@ -1,4 +1,4 @@
-System,N_count,π_electrons,HOMO_eV,LUMO_eV,Gap_eV
+Sistema,N_contagem,eletrons_π,HOMO_eV,LUMO_eV,Gap_eV
 0N,0,18,-1.155,1.155,2.309
 3N,3,18,-1.232,0.830,2.062
 6N,6,18,-1.349,0.452,1.801
