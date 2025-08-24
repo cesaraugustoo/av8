@@ -93,7 +93,7 @@ O projeto está concentrado em um único arquivo principal para simplicidade:
 
 * **Construção da Matriz de Hückel**: geração automática a partir da topologia molecular identificada via RDKit.
 * **Cálculo de Autovalores e Autovetores**: diagonalização da matriz para obter energias e coeficientes dos OMs.
-* **Análise dos Orbitais de Fronteira**: identificação de **HOMO**, **LUMO** (e SOMO, se aplicável) e cálculo do **gap de energia**.
+* **Análise dos Orbitais de Fronteira**: identificação de **HOMO**, **LUMO** e cálculo do **gap de energia**.
 * **Propriedades Eletrônicas**: cálculo de ordens de ligação π e densidades de carga π.
 * **Visualizações e Relatórios**: gráficos interativos em HTML, incluindo diagramas de níveis e mapas de orbitais.
 
@@ -120,7 +120,7 @@ graph TD
         H{Imagens e Gráficos}
     end
     subgraph Saída
-        I[Relatório Final (HTML, JSON)]
+        I[Relatório Final: HTML, JSON]
     end
 
     A --> B
@@ -165,7 +165,7 @@ graph TD
 
 ---
 
-## **Detalhamento das Etapas de Visualização**
+## **Etapas de Visualização**
 
 * **Mapa de Ordem de Ligação π** (`plot_bond_order_overlay`): sobrepõe as ordens de ligação π na estrutura 2D.
 * **Diagrama de Níveis de Energia** (`plot_orbital_energy_diagram`): exibe níveis, HOMO, LUMO e gap.
