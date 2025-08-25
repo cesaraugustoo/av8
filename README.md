@@ -2,8 +2,7 @@
 
 ## **Resumo**
 
-Este projeto apresenta uma implementação computacional do **Método de Hückel** para a análise de sistemas de elétrons π em moléculas orgânicas conjugadas.
-O objetivo principal é fornecer uma **ferramenta didática** para estudantes de graduação em **Química e Física**, permitindo:
+Implementação computacional do **Método de Hückel** para a análise de sistemas de elétrons π em moléculas conjugadas, permitindo:
 
 * Cálculo dos **níveis de energia** dos orbitais moleculares (OMs).
 * Determinação dos **coeficientes dos OMs**.
@@ -29,7 +28,7 @@ Para executar este projeto, é necessário ter **Python 3.x** instalado, juntame
 
 ## **Instalação das Dependências com Conda**
 
-A instalação via **conda** é fortemente recomendada, pois gerencia a complexa dependência da biblioteca RDKit de forma eficiente.
+A instalação se dá via **conda**:
 
 ### **1. Criar e ativar um novo ambiente Conda**
 
@@ -48,7 +47,7 @@ conda activate huckel_env
 ## **Como Executar**
 
 O projeto foi desenvolvido como um **pipeline autocontido** no script `huckel_pipeline.py`.
-Para executá-lo, rode no terminal (com o ambiente Conda ativado):
+Para executá-lo, execut no terminal (com o ambiente Conda ativado):
 
 ```bash
 python huckel_pipeline.py
@@ -64,12 +63,11 @@ Após a execução, será criado um diretório chamado **`demo_output/`**, conte
 
 * **Relatório HTML (.html)**: relatório completo com diagramas, tabelas de energia, ordens de ligação e mapas de orbitais de fronteira.
 * **Imagens (.png)**:
-
   * Diagrama de níveis de energia dos orbitais moleculares.
   * Visualização dos coeficientes dos orbitais HOMO e LUMO sobre a estrutura molecular.
   * Mapa de ordens de ligação π.
   * Estrutura molecular com a numeração dos átomos do sistema π.
-* **Dados JSON (.json)**: arquivo com resultados numéricos (energias, coeficientes, etc.) para fácil processamento.
+* **Dados JSON (.json)**: arquivo com resultados numéricos (energias, coeficientes, etc.) para processamento.
 
 ---
 
@@ -91,81 +89,66 @@ O projeto está concentrado em um único arquivo principal para simplicidade:
 
 ## **Funcionalidades Principais**
 
-* **Construção da Matriz de Hückel**: geração automática a partir da topologia molecular identificada via RDKit.
+* **Construção da Matriz de Hückel**: gerada a partir da topologia molecular identificada via RDKit.
 * **Cálculo de Autovalores e Autovetores**: diagonalização da matriz para obter energias e coeficientes dos OMs.
-* **Análise dos Orbitais de Fronteira**: identificação de **HOMO**, **LUMO** (e SOMO, se aplicável) e cálculo do **gap de energia**.
+* **Análise dos Orbitais de Fronteira**: identificação de **HOMO**, **LUMO** e cálculo do **gap de energia**.
 * **Propriedades Eletrônicas**: cálculo de ordens de ligação π e densidades de carga π.
 * **Visualizações e Relatórios**: gráficos interativos em HTML, incluindo diagramas de níveis e mapas de orbitais.
 
 ---
 
-## **Diagramas de Fluxo**
-
-### **Arquitetura do Pipeline (Interação entre Componentes)**
+## **Diagrama de Fluxo**
 
 ```mermaid
-graph TD
-    subgraph Entrada
-        A[SMILES da Molécula]
-    end
-    subgraph Processamento
-        B(InputHandler)
-        C(HuckelCalculator)
-        D(Visualizer)
-        E(ReportGenerator)
-    end
-    subgraph Dados Intermediários
-        F{Objeto Mol RDKit}
-        G{Resultados Numéricos}
-        H{Imagens e Gráficos}
-    end
-    subgraph Saída
-        I[Relatório Final (HTML, JSON)]
-    end
+flowchart TD
 
-    A --> B
-    B --> F
-    F --> C
-    C --> G
-    G --> D
-    D --> H
-    G & H --> E
-    E --> I
+%% ============================
+%% SEÇÃO 1 - NÍVEL ALTO
+%% ============================
+subgraph HighLevel["Fluxo Geral do Pipeline Huckel"]
+    A1["1. Entrada da Molécula (SMILES/arquivo)"]
+    A2["2. Geração da Estrutura Molecular (RDKit)"]
+    A3["3. Construção da Matriz de Adjacência"]
+    A4["4. Montagem da Matriz Huckel"]
+    A5["5. Cálculo de Autovalores e Autovetores"]
+    A6["6. Identificação de HOMO e LUMO"]
+    A7["7. Visualizações e Resultados"]
+end
+
+A1 --> A2 --> A3 --> A4 --> A5 --> A6 --> A7
+
+%% ============================
+%% SEÇÃO 2 - DETALHES DO CÓDIGO
+%% ============================
+subgraph Details["Detalhes Internos do Código"]
+    B1["Importação das Bibliotecas: numpy, rdkit, matplotlib"]
+    B2["Leitura da molécula via SMILES (Chem.MolFromSmiles)"]
+    B3["Conversão para grafo -> Matriz de adjacência"]
+    B4["Definição de parâmetros α (alpha) e β (beta) do Huckel"]
+    B5["Construção da Matriz Hamiltoniana H = αI + βA"]
+    B6["Diagonalização: numpy.linalg.eigh"]
+    B7["Ordenação dos níveis de energia"]
+    B8["Determinação de HOMO/LUMO pela contagem de elétrons"]
+    B9["Plot de:
+        - Estrutura molecular
+        - Diagrama de níveis de energia
+        - Orbitais moleculares"]
+    B10["Geração dos arquivos de saída (.png, .csv)"]
+end
+
+%% RELAÇÕES ENTRE ALTO E DETALHE
+A1 -->|Implementado por| B2
+A2 -->|Visualização com RDKit| B9
+A3 -->|Implementado por| B3
+A4 -->|Baseado em| B4 & B5
+A5 -->|Implementado por| B6 & B7
+A6 -->|Baseado em| B8
+A7 -->|Gerado por| B9 & B10
 ```
 
 ---
 
-### **Fluxo de Execução do Cálculo (`run_single_calculation`)**
-
-```mermaid
-graph TD
-    A(Início) --> B[smiles_to_mol]
-    B --> C(solve_huckel)
-    subgraph "Detalhes do solve_huckel"
-        direction TB
-        C1[identify_pi_system: Identifica átomos π] --> C2[build_huckel_matrix: Constrói a matriz H]
-        C2 --> C3[linalg.eigh: Diagonaliza a matriz H]
-        C3 --> C4{Obtém Energias e Coeficientes}
-        C4 --> C5[Calcula propriedades: Ordens de ligação, cargas π]
-        C5 --> C6[Identifica orbitais HOMO/LUMO]
-    end
-    C --> D{Resultados Numéricos}
-    D --> E[compute_pi_planarity: Analisa a planaridade]
-    E --> F(Gera Visualizações)
-    subgraph "Tipos de Visualizações Geradas"
-        direction LR
-        F1[Mapa de Ordem de Ligação π]
-        F2[Diagrama de Níveis de Energia]
-        F3[Mapas de Coeficientes HOMO/LUMO]
-    end
-    F --> G[generate_html_report: Compila relatório HTML]
-    G --> H[export_results_json: Salva dados em JSON]
-    H --> I(Fim)
-```
-
----
-
-## **Detalhamento das Etapas de Visualização**
+## **Etapas de Visualização**
 
 * **Mapa de Ordem de Ligação π** (`plot_bond_order_overlay`): sobrepõe as ordens de ligação π na estrutura 2D.
 * **Diagrama de Níveis de Energia** (`plot_orbital_energy_diagram`): exibe níveis, HOMO, LUMO e gap.
@@ -194,11 +177,3 @@ if resultados.success:
     print(f"Energia do LUMO: {resultados.lumo_energy:.3f} eV")
     print(f"Gap HOMO-LUMO: {resultados.homo_lumo_gap:.3f} eV")
 ```
-
----
-
-## **Referências Bibliográficas**
-
-A teoria e os fundamentos aplicados neste projeto são discutidos em:
-
-* **Levine, I. N.** *Quantum Chemistry* (7th ed.). Pearson, 2009.
