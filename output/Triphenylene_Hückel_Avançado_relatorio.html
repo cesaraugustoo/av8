@@ -1,0 +1,51 @@
+
+        <!DOCTYPE html>
+        <html lang="pt-br"><head><meta charset="UTF-8"><title>Relatório Hückel - Triphenylene</title>
+        <style>
+            body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; margin: 20px; background-color: #f5f5f5; }
+            .container { max-width: 1200px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+            .header { text-align: center; color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 20px; margin-bottom: 30px; }
+            .section { margin-bottom: 30px; padding: 20px; border-left: 4px solid #3498db; background-color: #f8f9fa; text-align: center; }
+            .section h3 { color: #2c3e50; margin-top: 0; }
+            .property-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+            .property-item { background: white; padding: 15px; border-radius: 5px; border-left: 3px solid #e74c3c; }
+            .image-container img { max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 5px; text-align: center; }
+            table { width: 100%; border-collapse: collapse; margin-top: 15px; margin: 0 auto; }
+            th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+            th { background-color: #3498db; color: white; }
+            .status-planar { color: #27ae60; font-weight: bold; } .status-quase-planar { color: #f39c12; font-weight: bold; } .status-nao-planar { color: #e74c3c; font-weight: bold; }
+            .warning { border: 1px solid #e74c3c; background-color: #fbeae5; padding: 10px; border-radius: 5px; color: #c0392b; }
+        </style></head><body><div class="container">
+            <div class="header"><h1>Relatório do Método de Hückel</h1><h2>Triphenylene</h2><p><strong>SMILES:</strong> C1=CC=C2C(=C1)C3=CC=CC=C3C4=CC=CC=C24</p></div>
+            <div class="section"><h3>Resumo do Cálculo</h3><div class="property-grid">
+                <div class="property-item"><strong>Energia dos Elétrons π:</strong><br>-63.186163 eV</div>
+                <div class="property-item"><strong>Energia do HOMO:</strong><br>-1.710101 eV</div>
+                <div class="property-item"><strong>Energia do LUMO:</strong><br>1.710101 eV</div>
+                <div class="property-item"><strong>Diferença de Energia HOMO-LUMO:</strong><br>3.420201 eV</div>
+            </div></div>
+            
+        <div class="section">
+            <h3>Verificação de Planaridade</h3>
+            
+            <div class="property-grid">
+                <div class="property-item"><strong>Status:</strong><br><span class="status-planar">Planar</span></div>
+                <div class="property-item"><strong>Desvio RMS:</strong><br>0.0000 Å</div>
+                <div class="property-item"><strong>Desvio Máximo:</strong><br>0.0000 Å</div>
+                <div class="property-item"><strong>Método:</strong><br>3D-Embutido</div>
+            </div>
+        </div>
+            <div class="section"><h3>Estrutura Molecular</h3><div class="image-container"><img src="Triphenylene_estrutura.png" alt="Estrutura Molecular"></div></div>
+            <div class="section"><h3>Mapa de Ordem de Ligação π</h3><div class="image-container"><img src="Triphenylene_ordens_ligacao.png" alt="Mapa de Ordem de Ligação π"></div></div>
+            <div class="section"><h3>Esquema do Sistema π de Hückel</h3>
+            <div class="image-container"><img src="Triphenylene_numerada.png" alt="Molécula Numerada"></div>
+            <h4>Mapeamento de Índices</h4><table><thead><tr><th>Índice Hückel</th><th>Índice RDKit</th><th>Átomo</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>C</td></tr><tr><td>1</td><td>1</td><td>C</td></tr><tr><td>2</td><td>2</td><td>C</td></tr><tr><td>3</td><td>3</td><td>C</td></tr><tr><td>4</td><td>4</td><td>C</td></tr><tr><td>5</td><td>5</td><td>C</td></tr><tr><td>6</td><td>6</td><td>C</td></tr><tr><td>7</td><td>7</td><td>C</td></tr><tr><td>8</td><td>8</td><td>C</td></tr><tr><td>9</td><td>9</td><td>C</td></tr><tr><td>10</td><td>10</td><td>C</td></tr><tr><td>11</td><td>11</td><td>C</td></tr><tr><td>12</td><td>12</td><td>C</td></tr><tr><td>13</td><td>13</td><td>C</td></tr><tr><td>14</td><td>14</td><td>C</td></tr><tr><td>15</td><td>15</td><td>C</td></tr><tr><td>16</td><td>16</td><td>C</td></tr><tr><td>17</td><td>17</td><td>C</td></tr></tbody></table>
+            <h4>Conectividade (Índices dos Átomos do Sistema π)</h4><table><thead><tr><th>Índice do Átomo</th><th>Vizinhos</th></tr></thead><tbody><tr><td>0</td><td>1, 5</td></tr><tr><td>1</td><td>0, 2</td></tr><tr><td>2</td><td>1, 3</td></tr><tr><td>3</td><td>2, 4, 17</td></tr><tr><td>4</td><td>3, 5, 6</td></tr><tr><td>5</td><td>0, 4</td></tr><tr><td>6</td><td>4, 7, 11</td></tr><tr><td>7</td><td>6, 8</td></tr><tr><td>8</td><td>7, 9</td></tr><tr><td>9</td><td>8, 10</td></tr><tr><td>10</td><td>9, 11</td></tr><tr><td>11</td><td>6, 10, 12</td></tr><tr><td>12</td><td>11, 13, 17</td></tr><tr><td>13</td><td>12, 14</td></tr><tr><td>14</td><td>13, 15</td></tr><tr><td>15</td><td>14, 16</td></tr><tr><td>16</td><td>15, 17</td></tr><tr><td>17</td><td>3, 12, 16</td></tr></tbody></table>
+        </div>
+            <div class="section"><h3>Matriz de Hückel</h3><div class="image-container"><img src="Triphenylene_huckel_matrix.png" alt="Matriz de Hückel"></div></div>
+            <div class="section"><h3>Diagrama de Energia dos Orbitais</h3><div class="image-container"><img src="Triphenylene_diagrama_energia.png" alt="Diagrama de Energia dos Orbitais"></div></div>
+            <div class="section"><h3>Energias dos Orbitais Moleculares</h3><table><thead><tr><th>Nº do OM</th><th>Energia (eV)</th><th>Tipo</th></tr></thead><tbody><tr><td>1</td><td>-6.330222</td><td>Ocupado</td></tr><tr><td>2</td><td>-4.924039</td><td>Ocupado</td></tr><tr><td>3</td><td>-4.924039</td><td>Ocupado</td></tr><tr><td>4</td><td>-3.368241</td><td>Ocupado</td></tr><tr><td>5</td><td>-3.213938</td><td>Ocupado</td></tr><tr><td>6</td><td>-3.213938</td><td>Ocupado</td></tr><tr><td>7</td><td>-2.198463</td><td>Ocupado</td></tr><tr><td>8</td><td>-1.710101</td><td>Ocupado</td></tr><tr><td>9 (HOMO)</td><td>-1.710101</td><td>Ocupado</td></tr><tr><td>10 (LUMO)</td><td>1.710101</td><td>Virtual</td></tr><tr><td>11</td><td>1.710101</td><td>Virtual</td></tr><tr><td>12</td><td>2.198463</td><td>Virtual</td></tr><tr><td>13</td><td>3.213938</td><td>Virtual</td></tr><tr><td>14</td><td>3.213938</td><td>Virtual</td></tr><tr><td>15</td><td>3.368241</td><td>Virtual</td></tr><tr><td>16</td><td>4.924039</td><td>Virtual</td></tr><tr><td>17</td><td>4.924039</td><td>Virtual</td></tr><tr><td>18</td><td>6.330222</td><td>Virtual</td></tr></tbody></table></div>
+            <div class="section"><h3>Populações e Cargas de Elétrons π</h3><table><thead><tr><th>Índice do Átomo</th><th>População (qᵢ)</th><th>Carga π (zᵢ - qᵢ)</th></tr></thead><tbody><tr><td>0</td><td>1.0000</td><td>0.0000</td></tr><tr><td>1</td><td>1.0000</td><td>-0.0000</td></tr><tr><td>2</td><td>1.0000</td><td>0.0000</td></tr><tr><td>3</td><td>1.0000</td><td>-0.0000</td></tr><tr><td>4</td><td>1.0000</td><td>0.0000</td></tr><tr><td>5</td><td>1.0000</td><td>-0.0000</td></tr><tr><td>6</td><td>1.0000</td><td>0.0000</td></tr><tr><td>7</td><td>1.0000</td><td>0.0000</td></tr><tr><td>8</td><td>1.0000</td><td>-0.0000</td></tr><tr><td>9</td><td>1.0000</td><td>-0.0000</td></tr><tr><td>10</td><td>1.0000</td><td>-0.0000</td></tr><tr><td>11</td><td>1.0000</td><td>0.0000</td></tr><tr><td>12</td><td>1.0000</td><td>0.0000</td></tr><tr><td>13</td><td>1.0000</td><td>0.0000</td></tr><tr><td>14</td><td>1.0000</td><td>0.0000</td></tr><tr><td>15</td><td>1.0000</td><td>-0.0000</td></tr><tr><td>16</td><td>1.0000</td><td>0.0000</td></tr><tr><td>17</td><td>1.0000</td><td>-0.0000</td></tr></tbody></table></div>
+            <div class="section"><h3>Ordens de Ligação π (pᵢⱼ)</h3><table><thead><tr><th>Ligação</th><th>Ordem</th></tr></thead><tbody><tr><td>p<sub>9-10</sub></td><td>0.6904</td></tr><tr><td>p<sub>15-16</sub></td><td>0.6904</td></tr><tr><td>p<sub>1-2</sub></td><td>0.6904</td></tr><tr><td>p<sub>7-8</sub></td><td>0.6904</td></tr><tr><td>p<sub>0-5</sub></td><td>0.6904</td></tr><tr><td>p<sub>13-14</sub></td><td>0.6904</td></tr><tr><td>p<sub>14-15</sub></td><td>0.6366</td></tr><tr><td>p<sub>0-1</sub></td><td>0.6366</td></tr><tr><td>p<sub>8-9</sub></td><td>0.6366</td></tr><tr><td>p<sub>12-13</sub></td><td>0.6026</td></tr><tr><td>p<sub>4-5</sub></td><td>0.6026</td></tr><tr><td>p<sub>6-7</sub></td><td>0.6026</td></tr><tr><td>p<sub>10-11</sub></td><td>0.6026</td></tr><tr><td>p<sub>16-17</sub></td><td>0.6026</td></tr><tr><td>p<sub>2-3</sub></td><td>0.6026</td></tr><tr><td>p<sub>3-4</sub></td><td>0.5617</td></tr><tr><td>p<sub>6-11</sub></td><td>0.5617</td></tr><tr><td>p<sub>12-17</sub></td><td>0.5617</td></tr><tr><td>p<sub>3-17</sub></td><td>0.4281</td></tr><tr><td>p<sub>11-12</sub></td><td>0.4281</td></tr><tr><td>p<sub>4-6</sub></td><td>0.4281</td></tr></tbody></table></div>
+            <div class="section"><h3>Mapas dos Orbitais Moleculares de Fronteira</h3><div class="property-grid"><div class="image-container"><h4>Mapa do HOMO</h4><img src="Triphenylene_HOMO.png" alt="Mapa do HOMO"></div><div class="image-container"><h4>Mapa do LUMO</h4><img src="Triphenylene_LUMO.png" alt="Mapa do LUMO"></div></div></div>
+            <div class="section"><h3>Propriedades Moleculares</h3><div class="property-grid"><div class="property-item"><strong>Massa Molecular:</strong><br>228.29399999999998</div><div class="property-item"><strong>Num Atomos:</strong><br>18</div><div class="property-item"><strong>Num Atomos Pesados:</strong><br>18</div><div class="property-item"><strong>Num Ligacoes Rotaveis:</strong><br>0</div><div class="property-item"><strong>Tpsa:</strong><br>0.0</div><div class="property-item"><strong>Logp:</strong><br>5.146200000000003</div><div class="property-item"><strong>Num Aneis Aromaticos:</strong><br>4</div><div class="property-item"><strong>Formula:</strong><br>C18H12</div></div></div>
+        </div></body></html>

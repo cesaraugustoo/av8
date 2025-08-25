@@ -1,0 +1,51 @@
+
+        <!DOCTYPE html>
+        <html lang="pt-br"><head><meta charset="UTF-8"><title>Relatório Hückel - Oxepin</title>
+        <style>
+            body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; margin: 20px; background-color: #f5f5f5; }
+            .container { max-width: 1200px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+            .header { text-align: center; color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 20px; margin-bottom: 30px; }
+            .section { margin-bottom: 30px; padding: 20px; border-left: 4px solid #3498db; background-color: #f8f9fa; text-align: center; }
+            .section h3 { color: #2c3e50; margin-top: 0; }
+            .property-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+            .property-item { background: white; padding: 15px; border-radius: 5px; border-left: 3px solid #e74c3c; }
+            .image-container img { max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 5px; text-align: center; }
+            table { width: 100%; border-collapse: collapse; margin-top: 15px; margin: 0 auto; }
+            th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+            th { background-color: #3498db; color: white; }
+            .status-planar { color: #27ae60; font-weight: bold; } .status-quase-planar { color: #f39c12; font-weight: bold; } .status-nao-planar { color: #e74c3c; font-weight: bold; }
+            .warning { border: 1px solid #e74c3c; background-color: #fbeae5; padding: 10px; border-radius: 5px; color: #c0392b; }
+        </style></head><body><div class="container">
+            <div class="header"><h1>Relatório do Método de Hückel</h1><h2>Oxepin</h2><p><strong>SMILES:</strong> C1=CC=COC=C1</p></div>
+            <div class="section"><h3>Resumo do Cálculo</h3><div class="property-grid">
+                <div class="property-item"><strong>Energia dos Elétrons π:</strong><br>-29.141077 eV</div>
+                <div class="property-item"><strong>Energia do HOMO:</strong><br>-0.644225 eV</div>
+                <div class="property-item"><strong>Energia do LUMO:</strong><br>1.433056 eV</div>
+                <div class="property-item"><strong>Diferença de Energia HOMO-LUMO:</strong><br>2.077281 eV</div>
+            </div></div>
+            
+        <div class="section">
+            <h3>Verificação de Planaridade</h3>
+            <p style="color: #d35400;"><strong>Nota:</strong> Desvios moderados da planaridade foram detectados.</p>
+            <div class="property-grid">
+                <div class="property-item"><strong>Status:</strong><br><span class="status-quase_planar">Quase Planar</span></div>
+                <div class="property-item"><strong>Desvio RMS:</strong><br>0.1429 Å</div>
+                <div class="property-item"><strong>Desvio Máximo:</strong><br>0.2476 Å</div>
+                <div class="property-item"><strong>Método:</strong><br>3D-Embutido</div>
+            </div>
+        </div>
+            <div class="section"><h3>Estrutura Molecular</h3><div class="image-container"><img src="Oxepin_estrutura.png" alt="Estrutura Molecular"></div></div>
+            <div class="section"><h3>Mapa de Ordem de Ligação π</h3><div class="image-container"><img src="Oxepin_ordens_ligacao.png" alt="Mapa de Ordem de Ligação π"></div></div>
+            <div class="section"><h3>Esquema do Sistema π de Hückel</h3>
+            <div class="image-container"><img src="Oxepin_numerada.png" alt="Molécula Numerada"></div>
+            <h4>Mapeamento de Índices</h4><table><thead><tr><th>Índice Hückel</th><th>Índice RDKit</th><th>Átomo</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>C</td></tr><tr><td>1</td><td>1</td><td>C</td></tr><tr><td>2</td><td>2</td><td>C</td></tr><tr><td>3</td><td>3</td><td>C</td></tr><tr><td>4</td><td>4</td><td>O</td></tr><tr><td>5</td><td>5</td><td>C</td></tr><tr><td>6</td><td>6</td><td>C</td></tr></tbody></table>
+            <h4>Conectividade (Índices dos Átomos do Sistema π)</h4><table><thead><tr><th>Índice do Átomo</th><th>Vizinhos</th></tr></thead><tbody><tr><td>0</td><td>1, 6</td></tr><tr><td>1</td><td>0, 2</td></tr><tr><td>2</td><td>1, 3</td></tr><tr><td>3</td><td>2, 4</td></tr><tr><td>4</td><td>3, 5</td></tr><tr><td>5</td><td>4, 6</td></tr><tr><td>6</td><td>0, 5</td></tr></tbody></table>
+        </div>
+            <div class="section"><h3>Matriz de Hückel</h3><div class="image-container"><img src="Oxepin_huckel_matrix.png" alt="Matriz de Hückel"></div></div>
+            <div class="section"><h3>Diagrama de Energia dos Orbitais</h3><div class="image-container"><img src="Oxepin_diagrama_energia.png" alt="Diagrama de Energia dos Orbitais"></div></div>
+            <div class="section"><h3>Energias dos Orbitais Moleculares</h3><table><thead><tr><th>Nº do OM</th><th>Energia (eV)</th><th>Tipo</th></tr></thead><tbody><tr><td>1</td><td>-6.562975</td><td>Ocupado</td></tr><tr><td>2</td><td>-4.155826</td><td>Ocupado</td></tr><tr><td>3</td><td>-3.207513</td><td>Ocupado</td></tr><tr><td>4 (HOMO)</td><td>-0.644225</td><td>Ocupado</td></tr><tr><td>5 (LUMO)</td><td>1.433056</td><td>Virtual</td></tr><tr><td>6</td><td>3.613025</td><td>Virtual</td></tr><tr><td>7</td><td>4.524457</td><td>Virtual</td></tr></tbody></table></div>
+            <div class="section"><h3>Populações e Cargas de Elétrons π</h3><table><thead><tr><th>Índice do Átomo</th><th>População (qᵢ)</th><th>Carga π (zᵢ - qᵢ)</th></tr></thead><tbody><tr><td>0</td><td>1.0213</td><td>-0.0213</td></tr><tr><td>1</td><td>1.0213</td><td>-0.0213</td></tr><tr><td>2</td><td>1.0955</td><td>-0.0955</td></tr><tr><td>3</td><td>0.9327</td><td>0.0673</td></tr><tr><td>4</td><td>1.9011</td><td>0.0989</td></tr><tr><td>5</td><td>0.9327</td><td>0.0673</td></tr><tr><td>6</td><td>1.0955</td><td>-0.0955</td></tr></tbody></table></div>
+            <div class="section"><h3>Ordens de Ligação π (pᵢⱼ)</h3><table><thead><tr><th>Ligação</th><th>Ordem</th></tr></thead><tbody><tr><td>p<sub>2-3</sub></td><td>0.9044</td></tr><tr><td>p<sub>5-6</sub></td><td>0.9044</td></tr><tr><td>p<sub>0-1</sub></td><td>0.8694</td></tr><tr><td>p<sub>0-6</sub></td><td>0.3557</td></tr><tr><td>p<sub>1-2</sub></td><td>0.3557</td></tr><tr><td>p<sub>3-4</sub></td><td>0.2131</td></tr><tr><td>p<sub>4-5</sub></td><td>0.2131</td></tr></tbody></table></div>
+            <div class="section"><h3>Mapas dos Orbitais Moleculares de Fronteira</h3><div class="property-grid"><div class="image-container"><h4>Mapa do HOMO</h4><img src="Oxepin_HOMO.png" alt="Mapa do HOMO"></div><div class="image-container"><h4>Mapa do LUMO</h4><img src="Oxepin_LUMO.png" alt="Mapa do LUMO"></div></div></div>
+            <div class="section"><h3>Propriedades Moleculares</h3><div class="property-grid"><div class="property-item"><strong>Massa Molecular:</strong><br>94.11299999999999</div><div class="property-item"><strong>Num Atomos:</strong><br>7</div><div class="property-item"><strong>Num Atomos Pesados:</strong><br>7</div><div class="property-item"><strong>Num Ligacoes Rotaveis:</strong><br>0</div><div class="property-item"><strong>Tpsa:</strong><br>9.23</div><div class="property-item"><strong>Logp:</strong><br>1.6002</div><div class="property-item"><strong>Num Aneis Aromaticos:</strong><br>0</div><div class="property-item"><strong>Formula:</strong><br>C6H6O</div></div></div>
+        </div></body></html>

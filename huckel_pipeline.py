@@ -81,6 +81,7 @@ class Results:
     lumo_index: Optional[int] = None
     somo_index: Optional[int] = None
     somo_energy: Optional[float] = None
+    huckel_matrix: Optional[np.ndarray] = None
 
     # Resultados de planaridade
     planarity_status: Optional[str] = None
@@ -223,6 +224,10 @@ class HuckelCalculator:
                 results.error_message = "Nenhum sistema π encontrado na molécula"
                 return results
             H = self.build_huckel_matrix(mol, pi_atoms)
+            try:
+                results.huckel_matrix = H.copy() if isinstance(H, np.ndarray) else np.asarray(H)
+            except Exception:
+                results.huckel_matrix = None
             if H.size == 0:
                 results.error_message = "Falha ao construir a matriz de Hückel"
                 return results
@@ -519,6 +524,134 @@ class Visualizer:
             return str(filename)
         except Exception as e:
             self.logger.error(f"Erro ao plotar a sobreposição de ordem de ligação: {e}"); return ""
+        
+    # def plot_huckel_matrix_heatmap(self, H_matrix, pi_atoms, save_name: str) -> str:
+    #     """
+    #     Visualiza a matriz de Hückel como um mapa de calor.
+    #     """
+    #     try:
+    #         if H_matrix is None:
+    #             self.logger.warning("plot_huckel_matrix_heatmap: received None H_matrix, skipping.")
+    #             return ""
+
+    #         arr = np.asarray(H_matrix)
+
+    #         if arr.ndim == 0:
+    #             self.logger.warning(f"plot_huckel_matrix_heatmap: H_matrix is 0-d (scalar). shape={arr.shape}; skipping.")
+    #             return ""
+
+    #         if arr.size == 0 or arr.shape[0] == 0 or arr.shape[1] == 0:
+    #             self.logger.warning(f"plot_huckel_matrix_heatmap: H_matrix is empty or has a zero dimension. shape={arr.shape}; skipping.")
+    #             return ""
+
+    #         if arr.ndim != 2:
+    #             self.logger.warning(f"plot_huckel_matrix_heatmap: H_matrix is not 2-D (ndim={arr.ndim}); skipping.")
+    #             return ""
+
+    #         fig, ax = plt.subplots(figsize=(7, 6))
+    #         sns.heatmap(
+    #             arr,
+    #             annot=True,
+    #             fmt=".3f",
+    #             cmap="RdBu_r",
+    #             center=0,
+    #             cbar_kws={"label": "Elemento da matriz (eV)"},
+    #             ax=ax,
+    #             square=True
+    #         )
+
+    #         n = arr.shape[0]
+    #         labels = [str(i) for i in range(n)]
+    #         ax.set_xticklabels(labels, rotation=45)
+    #         ax.set_yticklabels(labels, rotation=0)
+    #         ax.set_title(f"Matriz de Hückel")
+    #         ax.set_xlabel("Índice")
+    #         ax.set_ylabel("Índice")
+    #         plt.tight_layout()
+
+    #         filename = self.output_dir / f"{save_name.replace(' ', '_')}_huckel_matrix.png"
+    #         plt.savefig(filename, dpi=300, bbox_inches="tight")
+    #         plt.close()
+    #         self.logger.info(f"Matriz de Hückel salva: {filename}")
+    #         return str(filename)
+    #     except Exception as e:
+    #         self.logger.error(f"Erro em plot_huckel_matrix_heatmap: {e}")
+    #         return ""
+
+    def plot_huckel_matrix_heatmap(self, H_matrix, pi_atoms, save_name: str) -> str:
+        try:
+            if H_matrix is None:
+                self.logger.warning("plot_huckel_matrix_heatmap: received None H_matrix, skipping.")
+                return ""
+
+            arr = np.asarray(H_matrix, dtype=float)
+
+            # Basic validity checks
+            if arr.ndim != 2 or arr.size == 0:
+                self.logger.warning(f"plot_huckel_matrix_heatmap: invalid matrix shape={arr.shape}; skipping.")
+                return ""
+
+            n = arr.shape[0]
+
+            annot = True if n <= 30 else False
+            tick_target = 20
+            tick_step = max(1, n // tick_target)
+
+            max_abs = np.max(np.abs(arr)) if arr.size > 0 else 0.0
+            rel_thresh = 0.03
+            thresh = max_abs * rel_thresh
+            mask = np.abs(arr) < thresh
+
+            base = 6
+            scale = min(0.30 * n, 18) 
+            figsize = (base + scale, base + scale)
+
+            fig, ax = plt.subplots(figsize=figsize)
+
+            sns.heatmap(
+                arr,
+                mask=mask,
+                annot=annot,
+                fmt=".2f" if annot else None,
+                cmap="RdBu_r",
+                center=0,
+                cbar=False,
+                ax=ax,
+                square=True,
+                linewidths=0.2,
+            )
+
+            if n <= 40:
+                xticks = np.arange(n)
+                yticks = np.arange(n)
+                xtick_labels = [str(i) for i in xticks]
+                ytick_labels = [str(i) for i in yticks]
+            else:
+                ticks = np.arange(0, n, tick_step)
+                xticks = ticks
+                yticks = ticks
+                xtick_labels = [str(int(t)) for t in ticks]
+                ytick_labels = [str(int(t)) for t in ticks]
+
+                ax.set_xticks(xticks + 0.5)
+                ax.set_yticks(yticks + 0.5)
+
+            ax.set_xticklabels(xtick_labels, rotation=45, ha="right", fontsize=8)
+            ax.set_yticklabels(ytick_labels, rotation=0, fontsize=8)
+
+            ax.set_title(f"Matriz de Hückel")
+            ax.set_xlabel("Índice")
+            ax.set_ylabel("Índice")
+            plt.tight_layout()
+
+            filename = self.output_dir / f"{save_name.replace(' ', '_')}_huckel_matrix.png"
+            plt.savefig(filename, dpi=300, bbox_inches="tight")
+            plt.close()
+            self.logger.info(f"Hückel matrix heatmap saved: {filename}")
+            return str(filename)
+        except Exception as e:
+            self.logger.error(f"Erro em plot_huckel_matrix_heatmap: {e}")
+            return ""
 
 # ============================================================================
 # Módulo Gerador de Relatórios
@@ -578,6 +711,7 @@ class ReportGenerator:
             {self._generate_image_section('Estrutura Molecular', images, 'structure')}
             {self._generate_image_section('Mapa de Ordem de Ligação π', images, 'bond_orders')}
             {self._generate_huckel_scheme_section(results, mol, images)}
+            {self._generate_image_section('Matriz de Hückel', images, 'huckel_matrix')}
             {self._generate_image_section('Diagrama de Energia dos Orbitais', images, 'energy_diagram')}
             {self._generate_orbital_table(results)}
             {self._generate_population_table(results)}
@@ -642,7 +776,7 @@ class ReportGenerator:
             prop_items = "".join([f'<div class="property-item"><strong>{k.replace("_", " ").title()}:</strong><br>{v}</div>' for k, v in props.items()])
             return f'<div class="section"><h3>Propriedades Moleculares</h3><div class="property-grid">{prop_items}</div></div>'
         except: return ""
-        
+          
     def _generate_huckel_index_map_table(self, results: Results, mol: Chem.Mol) -> str:
         if results.pi_atoms is None: return ""
         rows = "".join([f"<tr><td>{h_idx}</td><td>{r_idx}</td><td>{mol.GetAtomWithIdx(r_idx).GetSymbol()}</td></tr>" for h_idx, r_idx in enumerate(results.pi_atoms)])
@@ -737,7 +871,16 @@ class QuantumChemistryPipeline:
 
             structure_file = self.visualizer.plot_molecular_structure(mol, mol_config.name)
             if structure_file: images['structure'] = structure_file
-            
+
+            # Add Hückel matrix heatmap only if valid
+            hmat = getattr(results, "huckel_matrix", None)
+            if isinstance(hmat, np.ndarray) and hmat.ndim == 2 and hmat.size > 0:
+                hmat_file = self.visualizer.plot_huckel_matrix_heatmap(hmat, results.pi_atoms, mol_config.name)
+                if hmat_file:
+                    images['huckel_matrix'] = hmat_file
+            else:
+                self.logger.info("Skipping Hückel matrix heatmap: no valid 2-D matrix present.")
+                    
             energy_diagram_file = self.visualizer.plot_orbital_energy_diagram(results, f"{mol_config.name}_diagrama_energia")
             if energy_diagram_file: images['energy_diagram'] = energy_diagram_file
             
