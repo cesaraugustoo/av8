@@ -1,8 +1,8 @@
-# **Implementação do Método de Hückel para Moléculas Conjugadas**
+# **Implementação do Método de Hückel**
 
 ## **Resumo**
 
-Implementação computacional do **Método de Hückel** para a análise de sistemas de elétrons π em moléculas conjugadas, permitindo:
+Este repositório contém um pipeline em Python que aplica o **Método de Hückel** para resolver problemas de química quântica, permitindo:
 
 * Cálculo dos **níveis de energia** dos orbitais moleculares (OMs).
 * Determinação dos **coeficientes dos OMs**.
@@ -12,6 +12,20 @@ Implementação computacional do **Método de Hückel** para a análise de siste
   * **LUMO** (*Lowest Unoccupied Molecular Orbital* – Orbital Molecular Desocupado de Mais Baixa Energia).
 
 O código constrói a **matriz de Hückel**, resolve o **problema de autovalores** para obter energias e orbitais e gera **diagramas e relatórios detalhados**.
+
+---
+
+## **Problemas Resolvidos**
+
+O pipeline implementado no script `moleculas.py` aborda diretamente as tarefas propostas:
+
+### **Tarefa 1: Análise do Oxepino (C₆H₆O)**
+
+O script realiza uma análise completa de Hückel para o Oxepino. Ele calcula os níveis de energia dos elétrons π, identifica os orbitais **HOMO** e **LUMO**, e gera visualizações dos orbitais de fronteira. O relatório final fornece os dados necessários para discutir a natureza eletrônica da molécula, incluindo seu gap de energia de **2.077 eV**.
+
+### **Tarefa 2: Estudo Comparativo do Trifenileno e Aza-derivados**
+
+Para a segunda tarefa, o pipeline analisa sistematicamente o Trifenileno e seus análogos substituídos por nitrogênio. O método de Hückel avançado ajusta os parâmetros de Coulomb ($\alpha$) e ressonância ($\beta$) para os heteroátomos, permitindo uma comparação direta e significativa. Os relatórios gerados permitem analisar como o número de átomos de nitrogênio afeta a distribuição eletrônica, as ordens de ligação e, crucialmente, os orbitais de fronteira.
 
 ---
 
@@ -47,13 +61,13 @@ conda activate huckel_env
 ## **Como Executar**
 
 O projeto foi desenvolvido como um **pipeline autocontido** no script `huckel_pipeline.py`.
-Para executá-lo, execut no terminal (com o ambiente Conda ativado):
+O script principal para resolver as tarefas propostas é o `moleculas.py`. Para executá-lo, utilize o seguinte comando no seu terminal (com o ambiente Conda ativado):
 
 ```bash
-python huckel_pipeline.py
+python moleculas.py
 ```
 
-A execução do script principal ativará uma função de demonstração (`demo_pipeline`), que realizará o cálculo para a **molécula de benzeno** como exemplo.
+Este comando irá executar a análise de Hückel para as quatro moléculas definidas no script e gerar todos os arquivos de saída no diretório `output/`.
 
 ---
 
@@ -89,11 +103,11 @@ O projeto está concentrado em um único arquivo principal para simplicidade:
 
 ## **Funcionalidades Principais**
 
-* **Construção da Matriz de Hückel**: gerada a partir da topologia molecular identificada via RDKit.
-* **Cálculo de Autovalores e Autovetores**: diagonalização da matriz para obter energias e coeficientes dos OMs.
-* **Análise dos Orbitais de Fronteira**: identificação de **HOMO**, **LUMO** e cálculo do **gap de energia**.
-* **Propriedades Eletrônicas**: cálculo de ordens de ligação π e densidades de carga π.
-* **Visualizações e Relatórios**: gráficos interativos em HTML, incluindo diagramas de níveis e mapas de orbitais.
+  * **Construção da Matriz de Hückel**: gerada a partir da topologia molecular identificada via RDKit, com parâmetros ajustáveis para heteroátomos.
+  * **Cálculo de Autovalores e Autovetores**: diagonalização da matriz para obter energias e coeficientes dos OMs.
+  * **Análise dos Orbitais de Fronteira**: identificação de **HOMO**, **LUMO** e cálculo do **gap de energia**.
+  * **Propriedades Eletrônicas**: cálculo de ordens de ligação π e densidades de carga π.
+  * **Visualizações e Relatórios**: gráficos em PNG e relatórios completos em HTML para cada molécula analisada.
 
 ---
 
@@ -176,4 +190,29 @@ if resultados.success:
     print(f"Energia do HOMO: {resultados.homo_energy:.3f} eV")
     print(f"Energia do LUMO: {resultados.lumo_energy:.3f} eV")
     print(f"Gap HOMO-LUMO: {resultados.homo_lumo_gap:.3f} eV")
+```
+
+## **Exemplo de Uso (Adicionando uma Nova Molécula)**
+
+Para analisar uma nova molécula, basta adicioná-la à lista `molecules_to_run` no arquivo `moleculas.py`:
+
+```python
+from huckel_pipeline import QuantumChemistryPipeline, MoleculeConfig
+
+# 1. Inicializar o pipeline
+pipeline = QuantumChemistryPipeline(output_dir="output")
+
+# 2. Definir a lista de moléculas
+molecules_to_run = [
+    # ... moléculas existentes
+    
+    # Adicione uma nova molécula aqui
+    MoleculeConfig(
+        smiles="C1=CC2=C(C=C1)C=C3C=CC=C3C2", 
+        name="Anthracene"
+    )
+]
+
+# 3. Executar o cálculo em lote
+resultados = pipeline.run_batch_calculations(molecules_to_run)
 ```
